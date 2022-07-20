@@ -1,6 +1,7 @@
 import java.util.Scanner;
 class Method_Overloading {
     //A program to detect the type of payment done by a user with command line arguments.
+    // This program is faulty. Will throw runtime exceptions in case when only one string argument is prvided in the command line.
 
     static void paymentType(String a){
         System.out.println("UPI payment successsful from "+a);
