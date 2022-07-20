@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Print positive or negative</title>
+</head>
+<body>
+
+    <div>
+        <form action="">
+        <label for="">Enter Number</label>
+        <input type="text" id="1">
+        </form>
+        <button id="3"> number?</button>
+    </div>
+    <div id="2">Footer</div>
+
+    <script>
+        let inputId = document.getElementById("1");
+        let divId = document.getElementById("2");
+        let buttonId = document.getElementById("3");
+
+        buttonId.addEventListener('click', function(){
+            let number = Number(inputId.value);
+            // divId.innerHTML= `<div id="2">${number}</div>`
+
+            if (number === 0){
+                divId.innerHTML= `<div id="2">Did you know that zero is both positive and negative?</div>`
+            }
+            else if (number > 0){
+                divId.innerHTML= `<div id="2">positive!</div>`
+            }
+            else if (number < 0){
+                divId.innerHTML= `<div id="2">negative!</div>`
+            }
+            else{
+                divId.innerHTML= `<div id="2">That is not a number smooth brain !!</div>`
+
+            }
+        } )
+
+       
+    </script>
+
+    
+</body>
+</html>

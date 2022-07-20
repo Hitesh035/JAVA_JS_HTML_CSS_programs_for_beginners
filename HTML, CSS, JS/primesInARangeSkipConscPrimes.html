@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+</head>
+<body>
+    <script>
+               let a = Number(prompt("enter first number"));
+               var b = Number(prompt("enter second number"));
+               var primeCount= 0;
+               var flag = true;
+
+               function primes (a,b){
+                if(a<= 1){
+                console.warn("first number must be 2 or greater");
+                return; }
+                if(b<= 2){
+                console.warn("second number must be 3 or greater");
+                return;}
+                if(a===b){
+                console.warn("Second number must be greater than first");
+                return; }
+                
+
+
+                for (var i=a; i<= b; i++){
+
+                  for (var j=2; j<= i/2; j++){
+                    if(i%j === 0){
+                      flag = false;
+                      
+                    }
+                    
+                  }
+                  if(flag){
+                      if(primeCount===0 || primeCount%2 === 0){
+                      console.log(i);
+                      }
+                      primeCount++;
+
+
+                    }
+                    flag=true;
+                }
+
+               } primes(a,b);
+    </script>
+    
+</body>
+</html>

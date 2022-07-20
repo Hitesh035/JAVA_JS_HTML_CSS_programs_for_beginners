@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Like Dislike App</title>
+
+</head>
+<body>
+    <div style="margin-bottom: 200px;" id="head">Like dislike app</div>
+    <div style="float:left; margin-left:300px ;"><button id="inc">like</button></div>
+    <div style="float:right; margin-right: 300px;"><button id="dec">dislike</button></div>
+    <div style="margin-top:500px ;" id="foot">Footer</div>
+
+
+    <script>
+        let count=0;
+        let incButton= document.getElementById("inc");
+        let decButton= document.getElementById("dec");
+        let footDiv= document.getElementById("foot");
+
+        incButton.addEventListener('click',function(){
+            count++;
+            footDiv.innerHTML= `<div style="margin-top:500px ;" id="foot"> Total: ${count}</div>`;
+        } )
+        decButton.addEventListener('click',function(){
+            count++;
+            footDiv.innerHTML= `<div style="margin-top:500px ;" id="foot"> Total: ${count}</div>`;
+        } )
+
+        
+
+    </script>
+</body>
+</html>

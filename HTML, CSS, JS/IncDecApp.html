@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Increment Decrement App</title>
+
+</head>
+<body>
+    <div style="margin-bottom: 200px;" id="head">Increment Decrement app</div>
+    <div>
+    <div style="float:left; margin-left:300px ;"><button id="inc">increment</button></div>
+    <div style="float:right; margin-right: 300px;"><button id="dec">decrement</button></div>
+    </div>
+    <div style="margin-top:500px ; margin-left: 400px;" id="foot">Footer</div>
+
+
+    <script>
+        let count=0;
+        let incButton= document.getElementById("inc");
+        let decButton= document.getElementById("dec");
+        let footDiv= document.getElementById("foot");
+
+        incButton.addEventListener('click',function(){
+            count++;
+            footDiv.innerHTML= `<div style="margin-top:500px ; margin-left: 400px;" id="foot">${count}</div>`;
+        } )
+        decButton.addEventListener('click',function(){
+            count--;
+            footDiv.innerHTML= `<div style="margin-top:500px ; margin-left: 400px;" id="foot">${count}</div>`;
+        } )
+
+        
+
+    </script>
+</body>
+</html>

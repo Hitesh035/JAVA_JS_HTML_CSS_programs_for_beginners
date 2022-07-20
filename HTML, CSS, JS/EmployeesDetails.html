@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Details</title>
+    <style>
+        #male{
+            
+            background-color:navy;
+            border-radius: 10px;
+            border: none;
+        }
+        #female{
+            background-color:palevioletred;
+            border-radius: 10px;
+            border: none;
+        }
+        #active{
+            background-color:green;
+            border-radius: 10px;
+            border: none;
+        }
+        #notactive{
+            background-color:crimson;
+            border-radius: 10px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="male" onclick="isMale()">isMale</button>
+    <button id="female" onclick="isFemale()">isFemale</button>
+    <button id="active" onclick="isActive()">isActive</button>
+    <button id="notactive" onclick="isNotActive()">isNotActive</button>
+
+    <script>
+        
+        let employees=[];
+
+        
+         employees[0]= {
+            name: "abc",
+            desgn: "Developer",
+            age: 23,
+            gender: "Male",
+            active: false
+         }
+         employees[1]= {
+            name: "xyz",
+            desgn: "Developer",
+            age: 25,
+            gender: "Female",
+            active: false
+         }
+         employees[2]= {
+            name: "def",
+            desgn: "Developer",
+            age: 27,
+            gender: "Male",
+            active: true
+         }
+         employees[3]= {
+            name: "pqr",
+            desgn: "Developer",
+            age: 27,
+            gender: "Female",
+            active: true
+         }
+
+         function isMale(){
+            for(let a in employees){
+                if(employees[a].gender === "Male"){
+                    console.log(employees[a]);
+                }
+            }
+         }
+         function isFemale(){
+            for(let a in employees){
+                if(employees[a].gender=== "Female"){
+                    console.log(employees[a]);
+                }
+            }
+         }
+         function isActive(){
+            for(let a in employees){
+                if(employees[a].active=== true){
+                    console.log(employees[a]);
+                }
+            }
+         }
+         function isNotActive(){
+            for(let a in employees){
+                if(employees[a].active=== false){
+                    console.log(employees[a]);
+                }
+            }
+         }
+    </script>
+    
+</body>
+</html>

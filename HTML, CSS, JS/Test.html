@@ -1,0 +1,373 @@
+<html>
+    <title> Babai Hotel </title>
+    <head>
+        <link href= "C:\Programming\HTML, CSS, JS\styleFirst.css"  rel= "stylesheet"/>
+        <style>
+          
+        </style>
+
+    </head>   
+    <body>
+
+        <button id="1">Print Array</button>
+        <h1 id="2"></h1>
+        <div id="3"></div>
+        
+         <script>
+            //PROGRAM 1 Creating Object Literal
+              /*let babaiHotel = {
+                todaySpecial : "Biryani",
+                price : 120,
+                side1: "Raita",
+                side2 : "Soup"
+              };
+
+              let key = prompt("What do you want to know? Choose from todaySpecial, price, side1, side2.");
+              console.log(babaiHotel[key]);*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // PROGRAM 2 types of scopes, hoisting
+               //local scope
+               //const c;
+               //c=10;
+               //let t;
+               //var f;
+               
+               /* {
+                    let a = "Odisha";
+                    const b = "Karnataka";
+                    //console.log(c);
+                    
+
+                }*/
+                
+              //   console.log(b);
+              //   console.log(f);
+              //   console.log(t);
+              //  console.log(c);
+                
+
+               //let numbers=[1,5,46,67];
+               //console.log(typeof numbers);
+
+
+              //  "use strict";
+              //   a= 20; //can be hoisted
+              //   console.log(a);
+              //   var a;
+
+              //   b=30;// cannot be hoisted
+              //   console.log(b);
+              //   let b;
+
+              //   c=30;// cannot be hoisted
+              //   console.log(c);
+              //   const c=0;
+
+
+
+
+
+
+
+
+
+
+
+              // PROGRAM 3 using 'this' keyword
+
+              // when strict mode is enabled
+              // "use strict";
+              // function hello(){
+              //   console.log(this);
+              // }hello();
+
+              
+
+              // var bye = function(){
+              //   console.log(this);
+              // } 
+              // bye();
+
+              // var greet = () =>{
+              //   console.log(this)
+              // } 
+              // greet();
+
+
+              // function hello(){
+              //   console.log(this);
+              // }hello();
+
+              
+                // not using strict mode
+              // function hello(){
+              // console.log(this);
+              // }hello();
+
+
+              // var bye = function(){
+              // console.log(this);
+              // } 
+              // bye();
+
+
+              // var greet = () =>{
+              // console.log(this)
+              // } 
+              // greet();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+              
+              
+              
+              // PROGRAM 4 Object literals, using . and [] notations
+
+            //   let person = {
+            //   name: "abc",
+            //   desgn: "Developer",
+            //   age: 23,
+            //   gender: "Male",
+            //   adress: "Marathahalli, Bengaluru"
+            // }
+
+            // console.log(person.name);
+            // let key = prompt("Enter what you want to know about the person");
+
+            // console.log(person[key]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+
+
+              
+
+               // PROGRAM 5  print primes in a range. skip consecutive primes.
+
+               /*let a = Number(prompt("enter first number"));
+               var b = Number(prompt("enter second number"));
+               var primeCount= 0;
+               var flag = true;
+
+               function primes (a,b){
+                if(a<= 1){
+                console.warn("first number must be 2 or greater");
+                return; }
+                if(b<= 2){
+                console.warn("second number must be 3 or greater");
+                return;}
+                if(a===b){
+                console.warn("Second number must be greater than first");
+                return; }
+                
+
+
+                for (var i=a; i<= b; i++){
+
+                  for (var j=2; j<= i/2; j++){
+                    if(i%j === 0){
+                      flag = false;
+                      
+                    }
+                    
+                  }
+                  if(flag){
+                      if(primeCount===0 || primeCount%2 === 0){
+                      console.log(i);
+                      }
+                      primeCount++;
+
+
+                    }
+                    flag=true;
+                }
+
+               } primes(a,b);*/
+
+
+
+
+
+
+
+
+
+
+
+               
+
+
+              //  PROGRAM 6 De-structuring arrays
+
+               /*let array1 = [16,45,324,566,3324,564,676];
+
+               let [a,,,,b] =  array1; // de-structuring 'array1'
+
+               console.log(a,b);
+
+               [a,b]= [b,a]; //swapping elements in an array
+               console.log(a,b);
+
+               array1 = [a,,,,,,b];
+               console.log(array1);
+               console.log(array1[4]);*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               // PROGRAM 7 De-structuring objects
+
+               /*let employee= {
+               name: "xyz",
+               desgn: "Developer",
+               age: 25,
+               gender: "Female",
+               active: false,
+               activeProjects:["SVC17", "RERT65", "FEED47", "FGTY79"],
+               completedProjects:["SSRT31", "YTR32", "VNUT48", "RTXG93"]
+              };
+
+              let a= [first,,second]= employee.activeProjects;
+              console.log(first,second);*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              // PROGRAM 8 Document object model, getElementById, addEventListener(), 
+
+              /*let buttonId = document.getElementById("1");
+              buttonId.addEventListener("click",function(){
+                let h1Id = document.getElementById("2");
+                h1Id.innerText = "Babai Hotel";
+              } )*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              // PROGRAM 9 printing array values as ordered list in html tags when button is clicked
+
+              let fruits=["Grapes", "Watermelon", "Lichis", "Banana", "Jackfruit"];
+
+              let str = `<ol>`;
+                for(fruit of fruits){
+                  str= str+ `<li>${fruit}</li>`
+                }
+
+                let divId = document.getElementById("3");
+
+                
+                let buttonId = document.getElementById("1");
+              buttonId.addEventListener("click",function(){
+                
+                divId.innerHTML = str;
+              } )
+
+
+              
+              
+
+
+
+               
+
+                
+               
+         </script>
+    </body>
+</html>
+    

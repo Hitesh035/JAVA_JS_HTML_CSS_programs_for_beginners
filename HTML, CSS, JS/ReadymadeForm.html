@@ -1,0 +1,110 @@
+html>
+<html lang="en">
+<head>
+   
+    <title>Document</title>
+<style>
+    form{
+        width: 60%;
+        margin: 10px auto;
+       
+    }
+    form fieldset{
+        background-color: lightblue;
+        height: 150vh;
+
+    }
+    legend{
+        height: 30px;
+        background: linear-gradient(45deg,blue,yellow,cyan,green);
+        padding: 8px;
+        border-radius: 0 10px 0 10px;
+        color: black;
+    }
+input[type="text"],[type="number"],[type="email"],[type="date"]{
+    display: block;
+    width: 80%;
+    padding: 5px;
+    border-radius: 8px;
+}
+form label{
+    display: block;
+    margin-bottom: 5px;
+}
+form button{
+    display: block;
+    background-color:white;
+    color: black;
+    font-size: 25px;
+    width: 83%;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+form button:hover{
+    background-color: yellow;
+    box-shadow: 4px 5px 10px red;
+    cursor: pointer;
+    
+}
+form select{
+    width: 83%;
+    height: 30px;
+    border-radius: 10px;
+}
+input[type="radio"]{
+    margin: 10px;
+}
+input:focus{
+    border: 3px solid crimson;
+    
+}
+
+</style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Job Application Form</legend>
+        <label for="">firstName</label>
+        <input type="text" placeholder="enter your name">
+        <label for="">LastName</label>
+        <input type="text" placeholder="enter your lastname">
+        <label for="">Email</label>
+        <input type="email" placeholder="enter your email">
+        <label for="">ContactNumber</label>
+        <input type="number" placeholder="enter your Number">
+        <label for="">Address</label>
+        <textarea cols="15" rows="05"></textarea>
+        <label for="">Gender</label>
+        <input type="radio" name="a">male
+        <input type="radio" name="a">female
+        <label for="">dateOfBirth</label>
+        <input type="date">
+        <label for="">qualification</label>
+        <select>
+            <option >B.tech</option>
+            <option>BE</option>
+            <option>Bsc</option>
+            <option >Msc</option>
+            <option >MCA</option>
+            <option >M.tech</option>
+        </select>
+        <label for="">language</label>
+        <input type="checkbox">English
+        <input type="checkbox">kannada
+        <input type="checkbox">Telugu
+        <input type="checkbox">Hindi
+        <label for="">country</label>
+        <select name="" id="">
+            <option value="">India</option>
+            <option value="">USA</option>
+        </select>
+       <label for="">Resume</label>
+       <input type="file"><br>
+       <input type="radio">Terms and conditions
+       <button>Submit</button>
+
+    </fieldset>
+    </form>
+    
+</body>
