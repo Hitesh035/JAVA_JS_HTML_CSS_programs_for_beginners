@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fees checker</title>
+    <style>
+        .text{
+            margin-left: 5px;
+            
+
+        }
+    </style>
+</head>
+<body>
+    <table style="margin: 400px 800px   ; border: 2px solid black;">
+        <tr>
+            <td>
+                <label for="" style="margin-right: 3px;">Course</label>
+            <input type="text" class="text" id="course">
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <input type="radio" name="caste" id="gen">
+            <label for="">General</label>
+            <input type="radio" name="caste" id="st">
+            <label for="">ST/SC</label>
+            <input type="radio" name="caste" id="obc">
+            <label for="">OBC</label>
+            
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="" style="margin-right: 3px;">Total Fees</label>
+                <input type="number" class="text" id="fees" readonly>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="" style="margin-right: 3px;">Concession</label>
+                <input type="number" class="text" id="conc" readonly>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="" style="margin-right: 3px;">Amount Paid</label>
+                <input type="number" class="text" id="paid"  >
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="" style="margin-right: 3px;">Fees Due</label>
+                <input type="number" class="text" id="due" readonly>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="button">Submit</button>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        //Registering DOMs
+        let courseType= document.getElementById("course");
+        let genRadio= document.getElementById("gen");
+        let stRadio = document.getElementById("st");
+        let obcRadio = document.getElementById("obc");
+        let Concession = document.getElementById("conc");
+        let feesAmount = document.getElementById("fees");
+        let payment = document.getElementById("paid");
+        let due= document.getElementById("due");
+        let subButton= document.getElementById("button");
+
+        //Adding event to 'submit' button
+        subButton.addEventListener('click',function(){
+            if(courseType.value=='' || payment.value==''|| (genRadio.checked==false && stRadio.checked==false&& obcRadio.checked==false )){
+            alert(`Please enter all details`); }
+            else{
+                if(courseType.value === 'Javascript'){
+                    if(genRadio.checked === true){
+                        Concession.setAttribute('value',0);
+                        feesAmount.setAttribute('value',3500);
+                        if(payment.value>=0 && payment.value<=3500)
+                        due.setAttribute('value', (Number(feesAmount.value)-(Number(Concession.value)+Number(payment.value))));
+                        else
+                        alert(`Maximum fees is 3500!`);
+
+                    }
+                    if(stRadio.checked === true){
+                        Concession.setAttribute('value',300);
+                        feesAmount.setAttribute('value',3500);
+                        if(payment.value>=0 && payment.value<=3200)
+                        due.setAttribute('value', (Number(feesAmount.value)-(Number(Concession.value)+Number(payment.value))));
+                        else
+                        alert(`Maximum fees is 3200!`);
+
+                    }
+                    if(obcRadio.checked === true){
+                        Concession.setAttribute('value',200);
+                        feesAmount.setAttribute('value',3500);
+                        if(payment.value>=0 && payment.value<=3300)
+                        due.setAttribute('value', (Number(feesAmount.value)-(Number(Concession.value)+Number(payment.value))));
+                        else
+                        alert(`Maximum fees is 3300!`);
+
+                    }
+
+                }
+                else if(courseType.value === 'Python'){
+                    if(genRadio.checked === true){
+                        Concession.setAttribute('value',0);
+                        feesAmount.setAttribute('value',3500);
+                        if(payment.value>=0 && payment.value<=3500)
+                        due.setAttribute('value', (Number(feesAmount.value)-(Number(Concession.value)+Number(payment.value))));
+                        else
+                        alert(`Maximum fees is 3500!`);
+
+                    }
+                    if(stRadio.checked === true){
+                        Concession.setAttribute('value',300);
+                        feesAmount.setAttribute('value',3500);
+                        if(payment.value>=0 && payment.value<=3200)
+                        due.setAttribute('value', (Number(feesAmount.value)-(Number(Concession.value)+Number(payment.value))));
+                        else
+                        alert(`Maximum fees is 3200!`);
+
+                    }
+                    if(obcRadio.checked === true){
+                        Concession.setAttribute('value',200);
+                        feesAmount.setAttribute('value',3500);
+                        if(payment.value>=0 && payment.value<=3300)
+                        due.setAttribute('value', (Number(feesAmount.value)-(Number(Concession.value)+Number(payment.value))));
+                        else
+                        alert(`Maximum fees is 3300!`);
+
+                    }
+                }
+
+                else if(courseType.value === 'ReactJS'){
+                    if(genRadio.checked === true){
+                        Concession.setAttribute('value',0);
+                        feesAmount.setAttribute('value',3500);
+                        if(payment.value>=0 && payment.value<=3500)
+                        due.setAttribute('value', (Number(feesAmount.value)-(Number(Concession.value)+Number(payment.value))));
+                        else
+                        alert(`Maximum fees is 3500!`);
+
+                    }
+                    if(stRadio.checked === true){
+                        Concession.setAttribute('value',300);
+                        feesAmount.setAttribute('value',3500);
+                        if(payment.value>=0 && payment.value<=3200)
+                        due.setAttribute('value', (Number(feesAmount.value)-(Number(Concession.value)+Number(payment.value))));
+                        else
+                        alert(`Maximum fees is 3200!`);
+
+                    }
+                    if(obcRadio.checked === true){
+                        Concession.setAttribute('value',200);
+                        feesAmount.setAttribute('value',3500);
+                        if(payment.value>=0 && payment.value<=3300)
+                        due.setAttribute('value', (Number(feesAmount.value)-(Number(Concession.value)+Number(payment.value))));
+                        else
+                        alert(`Maximum fees is 3300!`);
+
+                    }
+                }
+                else
+                alert(`Invalid course type.`);
+            }
+
+
+        
+    })
+       
+        
+        
+    </script>
+    
+</body>
+</html>

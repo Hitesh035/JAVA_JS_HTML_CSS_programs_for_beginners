@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Like Dislike App</title>
+
+</head>
+<body>
+    <div  style="margin-bottom: 200px; text-align: center;" id="head">Like dislike app</div>
+    <div style="float:left; margin-left:300px ;"><button id="inc">like</button> <span id="likes">0</span></div>
+    <div style="float:right; margin-right: 300px;"><button id="dec">dislike</button><span id="dislikes">0</span></div>
+    <div style="margin-top:500px ; text-align: center;" id="foot">Footer</div>
+
+
+    <script>
+
+        //TOTAL DATA
+        let count=0;
+        //sessionStorage.setItem("locCount",JSON.stringify(count));
+        let footDiv= document.getElementById("foot");
+        var storedTotal = sessionStorage.getItem("locCount");
+
+
+
+        //LIKES DATA
+        let likesCount=0;
+        //sessionStorage.setItem("locLikes",JSON.stringify(likesCount));
+        var storedLikes = sessionStorage.getItem("locLikes");
+        let likeId= document.getElementById("likes");
+        let incButton= document.getElementById("inc");
+
+        incButton.addEventListener('click',function(){
+            
+            storedLikes = sessionStorage.getItem("locLikes");
+            storedTotal = sessionStorage.getItem("locCount");
+            count= ++storedTotal;
+            likesCount= ++storedLikes;
+            sessionStorage.setItem("locCount",JSON.stringify(count));
+            sessionStorage.setItem("locLikes",JSON.stringify(likesCount));
+            storedLikes = sessionStorage.getItem("locLikes");
+            storedTotal = sessionStorage.getItem("locCount");
+            footDiv.innerHTML= `<div style="margin-top:500px ;" id="foot"> Total: ${storedTotal}</div>`;
+            likeId.innerHTML= `<span id="likes">${storedLikes}</span>`;
+        } )
+
+
+
+        //DISLIKES DATA
+        let dislikesCount=0;
+        //sessionStorage.setItem("locDislikes",JSON.stringify(dislikesCount));
+        let decButton= document.getElementById("dec");
+        var storedDislikes = sessionStorage.getItem("locDislikes");
+        let dislikesId= document.getElementById("dislikes");
+
+        decButton.addEventListener('click',function(){
+            storedDislikes = sessionStorage.getItem("locDislikes");
+            storedTotal = sessionStorage.getItem("locCount");
+            count= ++storedTotal;
+            dislikesCount = ++storedDislikes;
+            sessionStorage.setItem("locCount",JSON.stringify(count));
+            sessionStorage.setItem("locDislikes",JSON.stringify(dislikesCount));
+            storedDislikes = sessionStorage.getItem("locDislikes");
+            storedTotal = sessionStorage.getItem("locCount");
+            footDiv.innerHTML= `<div style="margin-top:500px ;" id="foot"> Total: ${storedTotal}</div>`;
+            dislikesId.innerHTML= `<span id="likes">${storedDislikes}</span>`;
+        } )
+
+
+
+        
+        
+
+        
+        
+
+        if(storedTotal == null){
+            footDiv.innerText= `Total: ${0}`;
+            likeId.innerText= `${0}`;
+            dislikesId.innerText=`${0}`;
+
+        }
+        else{
+            footDiv.innerText= `Total: ${storedTotal}`;
+            likeId.innerText= `${storedLikes}`;
+            dislikesId.innerText=`${storedDislikes}`;
+            
+        }
+
+        //sessionStorage.clear();
+        
+
+        
+
+    </script>
+</body>
+</html>
