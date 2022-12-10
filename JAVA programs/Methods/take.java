@@ -1,3 +1,0 @@
-class Take{
-    int var;
-}
