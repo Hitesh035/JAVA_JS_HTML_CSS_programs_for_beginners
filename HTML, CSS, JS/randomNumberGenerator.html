@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .correctBox{
+            border:2px solid green ;
+        }
+        .correctMessage{
+            color:  green;
+        }
+        .incorrectBox{
+            border:2px solid red ;
+        }
+        .incorrectMessage{
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+    <div>
+        <input type="number" placeholder="enter a number from 0-10" id="inp" >
+    </div>
+    <div>
+        <button id="guess">Guess</button>
+    </div>
+    <div>
+        <p id="message" ></p>
+    </div>
+    <script>
+        
+            document.getElementById('guess').addEventListener('click', function(){
+                if( document.getElementById('inp').value != '' && document.getElementById('inp').value >=0 && document.getElementById('inp').value <=10){
+                    let x= parseInt((Math.random()*10),10);
+                    //console.log(typeof document.getElementById('inp').value);
+                    // let x = (Math.random());
+                    
+                    if(document.getElementById('inp').value == x){
+                    document.getElementById('message').innerText = `Correctomundo!`;
+                    document.getElementById('message').setAttribute('class', 'correctMessage');
+                    document.getElementById('inp').setAttribute('class', 'correctBox')
+                    }
+                    else{
+                    document.getElementById('message').innerText = `Correct number is ${x}. Better luck next time :(`
+                    document.getElementById('message').setAttribute('class', 'incorrectMessage');
+                    document.getElementById('inp').setAttribute('class', 'incorrectBox')
+
+                    }
+                }
+                else if(document.getElementById('inp').value >10){
+                    alert(`Please enter a number from 0-10 my lord!`);
+                }
+
+        })
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toDoList</title>
+    <link rel="stylesheet" href="Fawesome/faSub/css/all.css">
+    <style>
+        li{
+            margin-right: 0px;
+            color: blue;
+        }
+        i{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div style="border: 2px solid red; width: 400px; margin: 400px 750px 0px;">
+        <h1>TO DO LIST</h1>
+        <input type="text" id="input">
+        <div class="test">
+            <button id="sub" class="te">submit</button>
+        </div>
+        
+    </div>
+    <div style="margin: 0px 750px" id="listDiv">
+        
+    </div>
+    <script>
+       
+       let task=localStorage.getItem('arrayCount');
+       
+       
+
+        document.getElementById('sub').addEventListener('click', function(){
+            if(document.getElementById('input').value !=''){
+                
+                
+                localStorage.getItem('string1');
+
+                if(localStorage.getItem('string1')== null)
+                {
+                var tasks =[]; 
+                tasks[task=0]=document.getElementById('input').value;
+                localStorage.setItem('array', JSON.stringify(tasks));
+                var str = `<ol>`;    
+                document.getElementById('listDiv').innerHTML =str+ ` <li id="${task}">${document.getElementById('input').value}<span style="margin-left: 30px;"><i class="fa-solid fa-xmark"></i></span></li>`;
+                str= str + ` <li id="${task}">${document.getElementById('input').value}<span style="margin-left: 30px;"><i class="fa-solid fa-xmark"></i></span></li>`;
+                localStorage.setItem('string1',str);
+                task++;
+                localStorage.setItem('arrayCount', task);
+                let inpId=document.getElementById("input");
+                inpId.setAttribute('value', '');
+                }
+
+
+               else{
+                var tasks = [];
+                tasks = JSON.parse(localStorage.getItem('array'));
+                tasks[task] = document.getElementById('input').value;
+                localStorage.setItem('array', JSON.stringify(tasks));
+                var str = localStorage.getItem('string1');
+                document.getElementById('listDiv').innerHTML =str+ ` <li id="${task}">${document.getElementById('input').value}<span style="margin-left: 30px;"><i class="fa-solid fa-xmark"></i></span></li>`;
+                str= str + ` <li id="${task}">${document.getElementById('input').value}<span style="margin-left: 30px;"><i class="fa-solid fa-xmark"></i></span></li>`;
+                localStorage.setItem('string1',str);
+                task++;
+                localStorage.setItem('arrayCount', task);
+                let inpId=document.getElementById("input");
+                inpId.setAttribute('value','');
+                
+
+
+               }
+               
+                
+            }
+            let inpId=document.getElementById("input");
+                inpId.setAttribute('value', ''); 
+        })
+        // console.log(document.getElementsByClassName('fa-solid fa-xmark'));
+
+        
+            
+        document.addEventListener('click', function(){
+            let flag = event.target.classList.contains('fa-solid','fa-xmark');
+            if(flag){
+                var tasks=[];
+                tasks = JSON.parse(localStorage.getItem('array'));
+                let x = event.target.parentElement.parentElement.getAttribute('id');
+                console.log(x);
+                let filteredArray = [];
+
+            //    var filteredArray= tasks.filter(function(value,index,arr){
+            //         delete tasks[x];
+            //         return arr;
+                // })
+
+                delete tasks[x];
+                let j=0;
+                for(let i=0; i<tasks.length; i++){
+                    if (tasks[i]!== undefined){
+                        filteredArray[j]=tasks[i];
+                        j++;
+                    }
+
+                }
+                task = j;
+                localStorage.setItem('arrayCount',task);
+                localStorage.setItem('array',JSON.stringify(filteredArray));
+                var str = `<ol>`;
+                localStorage.setItem('string1',str);    
+                for(let element in filteredArray){
+                    localStorage.getItem('string1');
+                    str= str+`<li id="${element}">${filteredArray[element]}<span style="margin-left: 30px;"><i class="fa-solid fa-xmark"></i></span></li>`
+                    localStorage.setItem('string1',str);
+                }
+                document.getElementById('listDiv').innerHTML = str;
+                
+            }
+            
+        })
+        
+        
+        // document.addEventListener('click', remove());
+
+        // function remove (){event()=>{
+        //     let flag = event.target.classList.contains('fa-solid fa-xmark');
+        //     if(flag){
+        //         console.log(flag);
+        //     }
+
+        // }}
+
+        if(localStorage.getItem('string1')!== null){
+            document.getElementById('listDiv').innerHTML = localStorage.getItem('string1');
+        }
+    
+        
+        
+    </script>
+    
+    
+
+</body>
+</html>

@@ -1,0 +1,270 @@
+
+    if((document.getElementById('buses')).value == 'laraACbuses0'){
+                console.log(345); //tracker
+                // var seat_array_laraACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraACbuses0'))
+                // console.log(seat_array_laraACbuses0);
+                if(localStorage.getItem('stored_seat_array_laraACbuses0')!= null){
+                    var seat_array_laraACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraACbuses0'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_laraACbuses0[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_laraACbuses0 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_laraACbuses0[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_laraACbuses0[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_laraACbuses0',JSON.stringify( seat_array_laraACbuses0) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'laraACbuses1'){
+                console.log(345); //tracker
+                // var seat_array_laraACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraACbuses1'))
+                // console.log(seat_array_laraACbuses1);
+                if(localStorage.getItem('stored_seat_array_laraACbuses1')!= null){
+                    var seat_array_laraACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraACbuses1'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_laraACbuses1[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_laraACbuses1 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_laraACbuses1[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_laraACbuses1[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_laraACbuses1',JSON.stringify( seat_array_laraACbuses1) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'laraACbuses2'){
+                console.log(345); //tracker
+                // var seat_array_laraACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraACbuses2'))
+                // console.log(seat_array_laraACbuses2);
+                if(localStorage.getItem('stored_seat_array_laraACbuses2')!= null){
+                    var seat_array_laraACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraACbuses2'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_laraACbuses2[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_laraACbuses2 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_laraACbuses2[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_laraACbuses2[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_laraACbuses2',JSON.stringify( seat_array_laraACbuses2) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'laraNONACbuses0'){
+                console.log(345); //tracker
+                // var seat_array_laraNONACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraNONACbuses0'))
+                // console.log(seat_array_laraNONACbuses0);
+                if(localStorage.getItem('stored_seat_array_laraNONACbuses0')!= null){
+                    var seat_array_laraNONACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraNONACbuses0'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_laraNONACbuses0[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_laraNONACbuses0 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_laraNONACbuses0[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_laraNONACbuses0[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_laraNONACbuses0',JSON.stringify( seat_array_laraNONACbuses0) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'laraNONACbuses1'){
+                console.log(345); //tracker
+                // var seat_array_laraNONACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraNONACbuses1'))
+                // console.log(seat_array_laraNONACbuses1);
+                if(localStorage.getItem('stored_seat_array_laraNONACbuses1')!= null){
+                    var seat_array_laraNONACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraNONACbuses1'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_laraNONACbuses1[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_laraNONACbuses1 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_laraNONACbuses1[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_laraNONACbuses1[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_laraNONACbuses1',JSON.stringify( seat_array_laraNONACbuses1) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'laraNONACbuses2'){
+                console.log(345); //tracker
+                // var seat_array_laraNONACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraNONACbuses2'))
+                // console.log(seat_array_laraNONACbuses2);
+                if(localStorage.getItem('stored_seat_array_laraNONACbuses2')!= null){
+                    var seat_array_laraNONACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraNONACbuses2'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_laraNONACbuses2[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_laraNONACbuses2 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_laraNONACbuses2[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_laraNONACbuses2[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_laraNONACbuses2',JSON.stringify( seat_array_laraNONACbuses2) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="">Task Name</label>
+        <input type="text" id="task" style="margin-left:5px ;">
+    
+    </div>
+    <div>
+        <button id="submit">Submit</button>
+    </div>
+    <div>
+        <ul>
+            <li id="selTask">
+                    abc
+            </li>
+            <li id="nextTask">
+                    DEF
+            </li >
+        </ul>
+    </div>
+<script>
+    let tasks = ['buy','wash','cut','cook','eat'];
+    localStorage.setItem('taskKey',JSON.stringify(tasks));
+    array1 = localStorage.getItem('taskKey');
+    convertedData= JSON.parse(array1);
+    console.log(convertedData[0]);
+
+    document.getElementById('submit').addEventListener('click', function(){
+        if(document.getElementById('task').value === '')
+        alert(`Enter task name`);
+        for(let task in tasks){
+            if(document.getElementById('task').value === tasks[task]){
+            document.getElementById('selTask').innerText = tasks[task];
+            if(tasks[++task]!== undefined)
+            document.getElementById('nextTask').innerText = tasks[task];
+            else 
+            document.getElementById('nextTask').innerText = `That was the last task!`
+        }
+
+        }
+        
+        
+    })
+</script>
+    
+</body>
+</html>

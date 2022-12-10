@@ -5,25 +5,33 @@
 
 </head>
 <body>
-    <div style="margin-bottom: 200px;" id="head">Like dislike app</div>
-    <div style="float:left; margin-left:300px ;"><button id="inc">like</button></div>
-    <div style="float:right; margin-right: 300px;"><button id="dec">dislike</button></div>
-    <div style="margin-top:500px ;" id="foot">Footer</div>
+    <div  style="margin-bottom: 200px; text-align: center;" id="head">Like dislike app</div>
+    <div style="float:left; margin-left:300px ;"><button id="inc">like</button> <span id="likes">0</span></div>
+    <div style="float:right; margin-right: 300px;"><button id="dec">dislike</button><span id="dislikes">0</span></div>
+    <div style="margin-top:500px ; text-align: center;" id="foot">Footer</div>
 
 
     <script>
         let count=0;
+        let likesCount=0;
+        let dislikesCount=0;
         let incButton= document.getElementById("inc");
         let decButton= document.getElementById("dec");
         let footDiv= document.getElementById("foot");
+        let likeId= document.getElementById("likes");
+        let dislikesId= document.getElementById("dislikes");
 
         incButton.addEventListener('click',function(){
             count++;
+            likesCount++;
             footDiv.innerHTML= `<div style="margin-top:500px ;" id="foot"> Total: ${count}</div>`;
+            likeId.innerHTML= `<span id="likes">${likesCount}</span>`;
         } )
         decButton.addEventListener('click',function(){
             count++;
+            dislikesCount++;
             footDiv.innerHTML= `<div style="margin-top:500px ;" id="foot"> Total: ${count}</div>`;
+            dislikesId.innerHTML= `<span id="likes">${dislikesCount}</span>`;
         } )
 
         

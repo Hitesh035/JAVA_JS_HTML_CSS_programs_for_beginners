@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>travelBookings</title>
+</head>
+<body>
+    <div>
+        
+            <div id="tickets">
+                <label for="">Number of tickets</label>
+                <input type="number" id="ticketValue" placeholder="enter" >
+                <button id="sub"> submit</button>
+                
+            </div>
+            <div >
+                <ol id="passList">
+                    <!-- <li>
+                        <label for="">Name</label>
+                        <input type="text">
+                    </li> -->
+                </ol>
+            </div>
+            <div>
+                <label for="">Travels agency</label>
+                <select name="" id="sel1" >
+                    <option value="LARA" id="LARA_TRAVELS">LARA TRAVELS</option>
+                    <option value="SUNNY" id="SUNNY_TRAVELS">SUNNY TRAVELS</option>
+                    <option value="RAINY" id="RAINY_TRAVELS">RAINY TRAVELS</option>
+                    <option value="HAPPY" id="HAPPY_TRAVELS">HAPPY TRAVELS</option>
+                    <option value="TRIPPY" id="TRIPPY_TRAVELS">TRIPPY TRAVELS</option>
+                </select>
+                
+            </div>
+            <div>
+                <input type="radio" name="cooling" id="ac" class="23">
+                <label for="">AC</label>
+                <input type="radio" name="cooling" id="nonac" class="23">
+                <label for="">Non AC</label>
+                
+            </div>
+            <div>
+                <label for="">BusNo</label>
+                <select name="" id="buses">
+                    
+                </select>
+            </div>
+            <div id="seatDiv">
+                
+            </div>
+            <div>
+                <button id="book">
+                    Book
+                </button>
+            </div>
+            <h1>
+                congo
+            </h1>
+        
+    </div>
+
+
+    <script>
+        let laraTravels = {
+            name: "LARA TRAVELS",
+            bus1: "AC1",
+            bus2: "AC2",
+            bus3: "AC3",
+            bus4: "NONAC1",
+            bus5: "NONAC2",
+            bus6: "NONAC3",
+            bus1Seats : [],
+            bus2Seats : [],
+            bus3Seats : [],
+            bus4Seats : [],
+            bus5Seats : [],
+            bus6Seats : [],
+        }
+        let sunnyTravels = {
+            name: "SUNNY TRAVELS",
+            bus1: "AC1",
+            bus2: "AC2",
+            bus3: "AC3",
+            bus4: "NONAC1",
+            bus5: "NONAC2",
+            bus6: "NONAC3",
+            bus1Seats : [],
+            bus2Seats : [],
+            bus3Seats : [],
+            bus4Seats : [],
+            bus5Seats : [],
+            bus6Seats : [],
+        }
+        let rainyTravels = {
+            name: "RAINY TRAVELS",
+            bus1: "AC1",
+            bus2: "AC2",
+            bus3: "AC3",
+            bus4: "NONAC1",
+            bus5: "NONAC2",
+            bus6: "NONAC3",
+            bus1Seats : [],
+            bus2Seats : [],
+            bus3Seats : [],
+            bus4Seats : [],
+            bus5Seats : [],
+            bus6Seats : [],
+        }
+        let happyTravels = {
+            name: "HAPPY TRAVELS",
+            bus1: "AC1",
+            bus2: "AC2",
+            bus3: "AC3",
+            bus4: "NONAC1",
+            bus5: "NONAC2",
+            bus6: "NONAC3",
+            bus1Seats : [],
+            bus2Seats : [],
+            bus3Seats : [],
+            bus4Seats : [],
+            bus5Seats : [],
+            bus6Seats : [],
+        }
+        let trippyTravels = {
+            name: "TRIPPY TRAVELS",
+            bus1: "AC1",
+            bus2: "AC2",
+            bus3: "AC3",
+            bus4: "NONAC1",
+            bus5: "NONAC2",
+            bus6: "NONAC3",
+            bus1Seats : [],
+            bus2Seats : [],
+            bus3Seats : [],
+            bus4Seats : [],
+            bus5Seats : [],
+            bus6Seats : [],
+        }
+        let list = document.createElement('li');
+        let inp = document.createElement('input');
+        let lab = document.createElement('label');
+        let a= document.getElementById('sub');
+        let i=0;
+
+        a.addEventListener('click', function(){
+            
+                if(document.getElementById('ticketValue').value>=1 && document.getElementById('ticketValue').value<= 10 ){
+                console.log(Number(document.getElementById('ticketValue').value));
+
+                for(i; i< Number(document.getElementById('ticketValue').value);i++){
+                    
+                    document.getElementById('passList').appendChild(document.createElement('li')).setAttribute('id', i);
+                    document.getElementById(`${i}`).appendChild(document.createElement('label')).innerText = `Passenger ${i+1}`;
+                    document.getElementById(`${i}`).appendChild(document.createElement('input'));
+
+                    // document.getElementById('#passList').appendChild("li").appendChild("input");
+                    // document.getElementById('#passList').appendChild("li").appendChild("label");
+                }
+            }
+            else if (document.getElementById('ticketValue').value < 1){
+                alert (`Must book a minimum of 1 ticket`);
+            }
+            else{
+                alert (`Cannot book more than 10 tickets at once.`);
+            }
+            
+            
+        })
+
+        document.addEventListener('click', function(){
+           let flag =event.target.classList.contains('23');
+            if(flag){
+                console.log(45); //tracker
+
+
+
+
+
+
+                if(document.getElementById('ac').checked){
+                    console.log(document.getElementById('sel1').value);//tracker
+
+
+                    if(document.getElementById('sel1').value === 'SUNNY'){
+                        console.log(document.getElementById('sel1').value);//tracker
+                        let sunnyACBuses = [] = [sunnyTravels.bus1, sunnyTravels.bus2,sunnyTravels.bus3];
+
+                        while(document.getElementById('buses').hasChildNodes()){
+                            document.getElementById('buses').removeChild(document.getElementById('buses').firstChild);
+                        }
+
+                        for(let i=0; i<sunnyACBuses.length; i++){
+                            document.getElementById('buses').appendChild(document.createElement('option')).setAttribute('id', `sunnyACbuses${i}`)
+                            document.getElementById(`sunnyACbuses${i}`).setAttribute('value', `sunnyACbuses${i}` );
+                            document.getElementById(`sunnyACbuses${i}`).innerText = sunnyACBuses[i];
+                        }
+
+                    }
+                    if(document.getElementById('sel1').value === 'RAINY'){
+                        console.log(document.getElementById('sel1').value);//tracker
+                        let rainyACBuses = [] = [rainyTravels.bus1, rainyTravels.bus2, rainyTravels.bus3];
+                        while(document.getElementById('buses').hasChildNodes()){
+                            document.getElementById('buses').removeChild(document.getElementById('buses').firstChild);
+                        }
+
+                        for(let i=0; i<rainyACBuses.length; i++){
+                            document.getElementById('buses').appendChild(document.createElement('option')).setAttribute('id', `rainyACbuses${i}`)
+                            document.getElementById(`rainyACbuses${i}`).setAttribute('value', `rainyACbuses${i}` );
+                            document.getElementById(`rainyACbuses${i}`).innerText = rainyACBuses[i];
+                        }
+
+                    }
+                    if(document.getElementById('sel1').value === 'HAPPY'){
+                        console.log(document.getElementById('sel1').value);//tracker
+                        let happyACBuses = [] = [happyTravels.bus1,happyTravels.bus2, happyTravels.bus3];
+                        while(document.getElementById('buses').hasChildNodes()){
+                            document.getElementById('buses').removeChild(document.getElementById('buses').firstChild);
+                        }
+
+                        for(let i=0; i<happyACBuses.length; i++){
+                            document.getElementById('buses').appendChild(document.createElement('option')).setAttribute('id', `happyACbuses${i}`)
+                            document.getElementById(`happyACbuses${i}`).setAttribute('value', `happyACbuses${i}` );
+                            document.getElementById(`happyACbuses${i}`).innerText = happyACBuses[i];
+                        }
+
+                    }
+                    if(document.getElementById('sel1').value === 'TRIPPY'){
+                        console.log(document.getElementById('sel1').value);//tracker
+                        let trippyACBuses = [] = [trippyTravels.bus1, trippyTravels.bus2, trippyTravels.bus3];
+                        while(document.getElementById('buses').hasChildNodes()){
+                            document.getElementById('buses').removeChild(document.getElementById('buses').firstChild);
+                        }
+
+                        for(let i=0; i<trippyACBuses.length; i++){
+                            document.getElementById('buses').appendChild(document.createElement('option')).setAttribute('id', `trippyACbuses${i}`)
+                            document.getElementById(`trippyACbuses${i}`).setAttribute('value', `trippyACbuses${i}` );
+                            document.getElementById(`trippyACbuses${i}`).innerText = trippyACBuses[i];
+                        }
+
+                    }
+                    if(document.getElementById('sel1').value === 'LARA'){
+                        console.log(document.getElementById('sel1').value);//tracker
+                        let laraACBuses = [] = [laraTravels.bus1, laraTravels.bus2, laraTravels.bus3];
+                        while(document.getElementById('buses').hasChildNodes()){
+                            document.getElementById('buses').removeChild(document.getElementById('buses').firstChild);
+                        }
+
+                        for(let i=0; i<laraACBuses.length; i++){
+                            document.getElementById('buses').appendChild(document.createElement('option')).setAttribute('id', `laraACbuses${i}`)
+                            document.getElementById(`laraACbuses${i}`).setAttribute('value', `laraACbuses${i}` );
+                            document.getElementById(`laraACbuses${i}`).innerText = laraACBuses[i];
+                        }
+
+                    }
+
+
+
+                }
+
+
+                else if(document.getElementById('nonac').checked){
+                    console.log(document.getElementById('sel1').value);//tracker
+
+
+                    if(document.getElementById('sel1').value === 'SUNNY'){
+                        console.log(document.getElementById('sel1').value);//tracker
+                        let sunnyNONACbuses = [] = [sunnyTravels.bus4, sunnyTravels.bus5,sunnyTravels.bus6];
+
+                        while(document.getElementById('buses').hasChildNodes()){
+                            document.getElementById('buses').removeChild(document.getElementById('buses').firstChild);
+                        }
+
+                        for(let i=0; i<sunnyNONACbuses.length; i++){
+                            document.getElementById('buses').appendChild(document.createElement('option')).setAttribute('id', `sunnyNONACbuses${i}`)
+                            document.getElementById(`sunnyNONACbuses${i}`).setAttribute('value', `sunnyNONACbuses${i}` );
+                            document.getElementById(`sunnyNONACbuses${i}`).innerText = sunnyNONACbuses[i];
+                        }
+
+                    }
+                    if(document.getElementById('sel1').value === 'RAINY'){
+                        console.log(document.getElementById('sel1').value);//tracker
+                        let rainyNONACbuses = [] = [rainyTravels.bus4, rainyTravels.bus5, rainyTravels.bus6];
+                        while(document.getElementById('buses').hasChildNodes()){
+                            document.getElementById('buses').removeChild(document.getElementById('buses').firstChild);
+                        }
+                
+                        for(let i=0; i<rainyNONACbuses.length; i++){
+                            document.getElementById('buses').appendChild(document.createElement('option')).setAttribute('id', `rainyNONACbuses${i}`)
+                            document.getElementById(`rainyNONACbuses${i}`).setAttribute('value', `rainyNONACbuses${i}` );
+                            document.getElementById(`rainyNONACbuses${i}`).innerText = rainyNONACbuses[i];
+                        }
+
+                    }
+                    if(document.getElementById('sel1').value === 'HAPPY'){
+                        console.log(document.getElementById('sel1').value);//tracker
+                        let happyNONACbuses = [] = [happyTravels.bus4,happyTravels.bus5, happyTravels.bus6];
+                        while(document.getElementById('buses').hasChildNodes()){
+                            document.getElementById('buses').removeChild(document.getElementById('buses').firstChild);
+                        }
+
+                        for(let i=0; i<happyNONACbuses.length; i++){
+                            document.getElementById('buses').appendChild(document.createElement('option')).setAttribute('id', `happyNONACbuses${i}`)
+                            document.getElementById(`happyNONACbuses${i}`).setAttribute('value', `happyNONACbuses${i}` );
+                            document.getElementById(`happyNONACbuses${i}`).innerText = happyNONACbuses[i];
+                        }
+
+                    }
+                    if(document.getElementById('sel1').value === 'TRIPPY'){
+                        console.log(document.getElementById('sel1').value);//tracker
+                        let trippyNONACbuses = [] = [trippyTravels.bus4, trippyTravels.bus5, trippyTravels.bus6];
+                        while(document.getElementById('buses').hasChildNodes()){
+                            document.getElementById('buses').removeChild(document.getElementById('buses').firstChild);
+                        }
+
+                        for(let i=0; i<trippyNONACbuses.length; i++){
+                            document.getElementById('buses').appendChild(document.createElement('option')).setAttribute('id', `trippyNONACbuses${i}`)
+                            document.getElementById(`trippyNONACbuses${i}`).setAttribute('value', `trippyNONACbuses${i}` );
+                            document.getElementById(`trippyNONACbuses${i}`).innerText = trippyNONACbuses[i];
+                        }
+
+                    }
+                    if(document.getElementById('sel1').value === 'LARA'){
+                        console.log(document.getElementById('sel1').value);//tracker
+                        let laraNONACbuses = [] = [laraTravels.bus4, laraTravels.bus5, laraTravels.bus6];
+                        while(document.getElementById('buses').hasChildNodes()){
+                            document.getElementById('buses').removeChild(document.getElementById('buses').firstChild);
+                        }
+
+                        for(let i=0; i<laraNONACbuses.length; i++){
+                            document.getElementById('buses').appendChild(document.createElement('option')).setAttribute('id', `laraNONACbuses${i}`)
+                            document.getElementById(`laraNONACbuses${i}`).setAttribute('value', `laraNONACbuses${i}` );
+                            document.getElementById(`laraNONACbuses${i}`).innerText = laraNONACbuses[i];
+                        }
+
+                    }
+
+
+
+                }
+
+                
+
+
+                
+        }
+        })
+
+        document.getElementById('buses').addEventListener('click', function(){
+
+            if((document.getElementById('buses')).value == 'sunnyACbuses0'){
+                console.log(345); //tracker
+                // var seat_array_sunnyACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_sunnyACbuses0'))
+                // console.log(seat_array_sunnyACbuses0);
+                if(localStorage.getItem('stored_seat_array_sunnyACbuses0')!= null){
+                    var seat_array_sunnyACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_sunnyACbuses0'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_sunnyACbuses0[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_sunnyACbuses0 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_sunnyACbuses0[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_sunnyACbuses0[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_sunnyACbuses0',JSON.stringify( seat_array_sunnyACbuses0) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'sunnyACbuses1'){
+                console.log(345); //tracker
+                // var seat_array_sunnyACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_sunnyACbuses1'))
+                // console.log(seat_array_sunnyACbuses1);
+                if(localStorage.getItem('stored_seat_array_sunnyACbuses1')!= null){
+                    var seat_array_sunnyACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_sunnyACbuses1'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_sunnyACbuses1[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_sunnyACbuses1 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_sunnyACbuses1[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_sunnyACbuses1[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_sunnyACbuses1',JSON.stringify( seat_array_sunnyACbuses1) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'sunnyACbuses2'){
+                console.log(345); //tracker
+                // var seat_array_sunnyACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_sunnyACbuses2'))
+                // console.log(seat_array_sunnyACbuses2);
+                if(localStorage.getItem('stored_seat_array_sunnyACbuses2')!= null){
+                    var seat_array_sunnyACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_sunnyACbuses2'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_sunnyACbuses2[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_sunnyACbuses2 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_sunnyACbuses2[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_sunnyACbuses2[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_sunnyACbuses2',JSON.stringify( seat_array_sunnyACbuses2) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'sunnyNONACbuses0'){
+                console.log(345); //tracker
+                // var seat_array_sunnyNONACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_sunnyNONACbuses0'))
+                // console.log(seat_array_sunnyNONACbuses0);
+                if(localStorage.getItem('stored_seat_array_sunnyNONACbuses0')!= null){
+                    var seat_array_sunnyNONACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_sunnyNONACbuses0'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_sunnyNONACbuses0[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_sunnyNONACbuses0 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_sunnyNONACbuses0[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_sunnyNONACbuses0[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_sunnyNONACbuses0',JSON.stringify( seat_array_sunnyNONACbuses0) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'sunnyNONACbuses1'){
+                console.log(345); //tracker
+                // var seat_array_sunnyNONACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_sunnyNONACbuses1'))
+                // console.log(seat_array_sunnyNONACbuses1);
+                if(localStorage.getItem('stored_seat_array_sunnyNONACbuses1')!= null){
+                    var seat_array_sunnyNONACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_sunnyNONACbuses1'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_sunnyNONACbuses1[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_sunnyNONACbuses1 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_sunnyNONACbuses1[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_sunnyNONACbuses1[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_sunnyNONACbuses1',JSON.stringify( seat_array_sunnyNONACbuses1) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'sunnyNONACbuses2'){
+                console.log(345); //tracker
+                // var seat_array_sunnyNONACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_sunnyNONACbuses2'))
+                // console.log(seat_array_sunnyNONACbuses2);
+                if(localStorage.getItem('stored_seat_array_sunnyNONACbuses2')!= null){
+                    var seat_array_sunnyNONACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_sunnyNONACbuses2'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_sunnyNONACbuses2[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_sunnyNONACbuses2 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_sunnyNONACbuses2[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_sunnyNONACbuses2[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_sunnyNONACbuses2',JSON.stringify( seat_array_sunnyNONACbuses2) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            
+    if((document.getElementById('buses')).value == 'rainyACbuses0'){
+                console.log(345); //tracker
+                // var seat_array_rainyACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_rainyACbuses0'))
+                // console.log(seat_array_rainyACbuses0);
+                if(localStorage.getItem('stored_seat_array_rainyACbuses0')!= null){
+                    var seat_array_rainyACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_rainyACbuses0'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_rainyACbuses0[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_rainyACbuses0 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_rainyACbuses0[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_rainyACbuses0[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_rainyACbuses0',JSON.stringify( seat_array_rainyACbuses0) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'rainyACbuses1'){
+                console.log(345); //tracker
+                // var seat_array_rainyACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_rainyACbuses1'))
+                // console.log(seat_array_rainyACbuses1);
+                if(localStorage.getItem('stored_seat_array_rainyACbuses1')!= null){
+                    var seat_array_rainyACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_rainyACbuses1'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_rainyACbuses1[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_rainyACbuses1 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_rainyACbuses1[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_rainyACbuses1[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_rainyACbuses1',JSON.stringify( seat_array_rainyACbuses1) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'rainyACbuses2'){
+                console.log(345); //tracker
+                // var seat_array_rainyACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_rainyACbuses2'))
+                // console.log(seat_array_rainyACbuses2);
+                if(localStorage.getItem('stored_seat_array_rainyACbuses2')!= null){
+                    var seat_array_rainyACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_rainyACbuses2'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_rainyACbuses2[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_rainyACbuses2 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_rainyACbuses2[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_rainyACbuses2[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_rainyACbuses2',JSON.stringify( seat_array_rainyACbuses2) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'rainyNONACbuses0'){
+                console.log(345); //tracker
+                // var seat_array_rainyNONACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_rainyNONACbuses0'))
+                // console.log(seat_array_rainyNONACbuses0);
+                if(localStorage.getItem('stored_seat_array_rainyNONACbuses0')!= null){
+                    var seat_array_rainyNONACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_rainyNONACbuses0'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_rainyNONACbuses0[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_rainyNONACbuses0 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_rainyNONACbuses0[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_rainyNONACbuses0[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_rainyNONACbuses0',JSON.stringify( seat_array_rainyNONACbuses0) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'rainyNONACbuses1'){
+                console.log(345); //tracker
+                // var seat_array_rainyNONACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_rainyNONACbuses1'))
+                // console.log(seat_array_rainyNONACbuses1);
+                if(localStorage.getItem('stored_seat_array_rainyNONACbuses1')!= null){
+                    var seat_array_rainyNONACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_rainyNONACbuses1'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_rainyNONACbuses1[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_rainyNONACbuses1 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_rainyNONACbuses1[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_rainyNONACbuses1[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_rainyNONACbuses1',JSON.stringify( seat_array_rainyNONACbuses1) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'rainyNONACbuses2'){
+                console.log(345); //tracker
+                // var seat_array_rainyNONACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_rainyNONACbuses2'))
+                // console.log(seat_array_rainyNONACbuses2);
+                if(localStorage.getItem('stored_seat_array_rainyNONACbuses2')!= null){
+                    var seat_array_rainyNONACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_rainyNONACbuses2'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_rainyNONACbuses2[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_rainyNONACbuses2 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_rainyNONACbuses2[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_rainyNONACbuses2[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_rainyNONACbuses2',JSON.stringify( seat_array_rainyNONACbuses2) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            
+    if((document.getElementById('buses')).value == 'happyACbuses0'){
+                console.log(345); //tracker
+                // var seat_array_happyACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_happyACbuses0'))
+                // console.log(seat_array_happyACbuses0);
+                if(localStorage.getItem('stored_seat_array_happyACbuses0')!= null){
+                    var seat_array_happyACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_happyACbuses0'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_happyACbuses0[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_happyACbuses0 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_happyACbuses0[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_happyACbuses0[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_happyACbuses0',JSON.stringify( seat_array_happyACbuses0) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'happyACbuses1'){
+                console.log(345); //tracker
+                // var seat_array_happyACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_happyACbuses1'))
+                // console.log(seat_array_happyACbuses1);
+                if(localStorage.getItem('stored_seat_array_happyACbuses1')!= null){
+                    var seat_array_happyACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_happyACbuses1'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_happyACbuses1[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_happyACbuses1 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_happyACbuses1[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_happyACbuses1[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_happyACbuses1',JSON.stringify( seat_array_happyACbuses1) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'happyACbuses2'){
+                console.log(345); //tracker
+                // var seat_array_happyACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_happyACbuses2'))
+                // console.log(seat_array_happyACbuses2);
+                if(localStorage.getItem('stored_seat_array_happyACbuses2')!= null){
+                    var seat_array_happyACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_happyACbuses2'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_happyACbuses2[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_happyACbuses2 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_happyACbuses2[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_happyACbuses2[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_happyACbuses2',JSON.stringify( seat_array_happyACbuses2) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'happyNONACbuses0'){
+                console.log(345); //tracker
+                // var seat_array_happyNONACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_happyNONACbuses0'))
+                // console.log(seat_array_happyNONACbuses0);
+                if(localStorage.getItem('stored_seat_array_happyNONACbuses0')!= null){
+                    var seat_array_happyNONACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_happyNONACbuses0'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_happyNONACbuses0[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_happyNONACbuses0 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_happyNONACbuses0[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_happyNONACbuses0[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_happyNONACbuses0',JSON.stringify( seat_array_happyNONACbuses0) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'happyNONACbuses1'){
+                console.log(345); //tracker
+                // var seat_array_happyNONACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_happyNONACbuses1'))
+                // console.log(seat_array_happyNONACbuses1);
+                if(localStorage.getItem('stored_seat_array_happyNONACbuses1')!= null){
+                    var seat_array_happyNONACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_happyNONACbuses1'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_happyNONACbuses1[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_happyNONACbuses1 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_happyNONACbuses1[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_happyNONACbuses1[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_happyNONACbuses1',JSON.stringify( seat_array_happyNONACbuses1) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'happyNONACbuses2'){
+                console.log(345); //tracker
+                // var seat_array_happyNONACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_happyNONACbuses2'))
+                // console.log(seat_array_happyNONACbuses2);
+                if(localStorage.getItem('stored_seat_array_happyNONACbuses2')!= null){
+                    var seat_array_happyNONACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_happyNONACbuses2'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_happyNONACbuses2[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_happyNONACbuses2 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_happyNONACbuses2[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_happyNONACbuses2[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_happyNONACbuses2',JSON.stringify( seat_array_happyNONACbuses2) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            
+    if((document.getElementById('buses')).value == 'trippyACbuses0'){
+                console.log(345); //tracker
+                // var seat_array_trippyACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_trippyACbuses0'))
+                // console.log(seat_array_trippyACbuses0);
+                if(localStorage.getItem('stored_seat_array_trippyACbuses0')!= null){
+                    var seat_array_trippyACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_trippyACbuses0'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_trippyACbuses0[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_trippyACbuses0 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_trippyACbuses0[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_trippyACbuses0[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_trippyACbuses0',JSON.stringify( seat_array_trippyACbuses0) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'trippyACbuses1'){
+                console.log(345); //tracker
+                // var seat_array_trippyACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_trippyACbuses1'))
+                // console.log(seat_array_trippyACbuses1);
+                if(localStorage.getItem('stored_seat_array_trippyACbuses1')!= null){
+                    var seat_array_trippyACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_trippyACbuses1'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_trippyACbuses1[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_trippyACbuses1 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_trippyACbuses1[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_trippyACbuses1[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_trippyACbuses1',JSON.stringify( seat_array_trippyACbuses1) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'trippyACbuses2'){
+                console.log(345); //tracker
+                // var seat_array_trippyACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_trippyACbuses2'))
+                // console.log(seat_array_trippyACbuses2);
+                if(localStorage.getItem('stored_seat_array_trippyACbuses2')!= null){
+                    var seat_array_trippyACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_trippyACbuses2'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_trippyACbuses2[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_trippyACbuses2 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_trippyACbuses2[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_trippyACbuses2[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_trippyACbuses2',JSON.stringify( seat_array_trippyACbuses2) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'trippyNONACbuses0'){
+                console.log(345); //tracker
+                // var seat_array_trippyNONACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_trippyNONACbuses0'))
+                // console.log(seat_array_trippyNONACbuses0);
+                if(localStorage.getItem('stored_seat_array_trippyNONACbuses0')!= null){
+                    var seat_array_trippyNONACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_trippyNONACbuses0'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_trippyNONACbuses0[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_trippyNONACbuses0 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_trippyNONACbuses0[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_trippyNONACbuses0[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_trippyNONACbuses0',JSON.stringify( seat_array_trippyNONACbuses0) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'trippyNONACbuses1'){
+                console.log(345); //tracker
+                // var seat_array_trippyNONACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_trippyNONACbuses1'))
+                // console.log(seat_array_trippyNONACbuses1);
+                if(localStorage.getItem('stored_seat_array_trippyNONACbuses1')!= null){
+                    var seat_array_trippyNONACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_trippyNONACbuses1'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_trippyNONACbuses1[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_trippyNONACbuses1 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_trippyNONACbuses1[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_trippyNONACbuses1[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_trippyNONACbuses1',JSON.stringify( seat_array_trippyNONACbuses1) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'trippyNONACbuses2'){
+                console.log(345); //tracker
+                // var seat_array_trippyNONACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_trippyNONACbuses2'))
+                // console.log(seat_array_trippyNONACbuses2);
+                if(localStorage.getItem('stored_seat_array_trippyNONACbuses2')!= null){
+                    var seat_array_trippyNONACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_trippyNONACbuses2'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_trippyNONACbuses2[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_trippyNONACbuses2 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_trippyNONACbuses2[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_trippyNONACbuses2[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_trippyNONACbuses2',JSON.stringify( seat_array_trippyNONACbuses2) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            
+    if((document.getElementById('buses')).value == 'laraACbuses0'){
+                console.log(345); //tracker
+                // var seat_array_laraACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraACbuses0'))
+                // console.log(seat_array_laraACbuses0);
+                if(localStorage.getItem('stored_seat_array_laraACbuses0')!= null){
+                    var seat_array_laraACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraACbuses0'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_laraACbuses0[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_laraACbuses0 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_laraACbuses0[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_laraACbuses0[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_laraACbuses0',JSON.stringify( seat_array_laraACbuses0) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'laraACbuses1'){
+                console.log(345); //tracker
+                // var seat_array_laraACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraACbuses1'))
+                // console.log(seat_array_laraACbuses1);
+                if(localStorage.getItem('stored_seat_array_laraACbuses1')!= null){
+                    var seat_array_laraACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraACbuses1'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_laraACbuses1[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_laraACbuses1 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_laraACbuses1[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_laraACbuses1[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_laraACbuses1',JSON.stringify( seat_array_laraACbuses1) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'laraACbuses2'){
+                console.log(345); //tracker
+                // var seat_array_laraACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraACbuses2'))
+                // console.log(seat_array_laraACbuses2);
+                if(localStorage.getItem('stored_seat_array_laraACbuses2')!= null){
+                    var seat_array_laraACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraACbuses2'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_laraACbuses2[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_laraACbuses2 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_laraACbuses2[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_laraACbuses2[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_laraACbuses2',JSON.stringify( seat_array_laraACbuses2) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'laraNONACbuses0'){
+                console.log(345); //tracker
+                // var seat_array_laraNONACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraNONACbuses0'))
+                // console.log(seat_array_laraNONACbuses0);
+                if(localStorage.getItem('stored_seat_array_laraNONACbuses0')!= null){
+                    var seat_array_laraNONACbuses0 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraNONACbuses0'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_laraNONACbuses0[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_laraNONACbuses0 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_laraNONACbuses0[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_laraNONACbuses0[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_laraNONACbuses0',JSON.stringify( seat_array_laraNONACbuses0) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'laraNONACbuses1'){
+                console.log(345); //tracker
+                // var seat_array_laraNONACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraNONACbuses1'))
+                // console.log(seat_array_laraNONACbuses1);
+                if(localStorage.getItem('stored_seat_array_laraNONACbuses1')!= null){
+                    var seat_array_laraNONACbuses1 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraNONACbuses1'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_laraNONACbuses1[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_laraNONACbuses1 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_laraNONACbuses1[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_laraNONACbuses1[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_laraNONACbuses1',JSON.stringify( seat_array_laraNONACbuses1) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+            if((document.getElementById('buses')).value == 'laraNONACbuses2'){
+                console.log(345); //tracker
+                // var seat_array_laraNONACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraNONACbuses2'))
+                // console.log(seat_array_laraNONACbuses2);
+                if(localStorage.getItem('stored_seat_array_laraNONACbuses2')!= null){
+                    var seat_array_laraNONACbuses2 = [] = JSON.parse(localStorage.getItem('stored_seat_array_laraNONACbuses2'))
+
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+
+                    for(let i =0 ;i<50;i++){
+                        if(seat_array_laraNONACbuses2[i] !== null){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                        }
+                    }
+                }
+                else{
+                    while(document.getElementById('seatDiv').hasChildNodes()){
+                        document.getElementById('seatDiv').removeChild(document.getElementById('seatDiv').firstChild)
+
+                    }
+                    var seat_array_laraNONACbuses2 = [];
+                    for(let i=0; i<50; i++){
+                        seat_array_laraNONACbuses2[i] = i+1;
+                        // if(i == 35){ //tracker
+                        //     seat_array_laraNONACbuses2[i] = undefined; //tracker 
+                        // } // tracker
+                    }
+                    localStorage.setItem('stored_seat_array_laraNONACbuses2',JSON.stringify( seat_array_laraNONACbuses2) )
+
+                    for(let i=0; i<50; i++){
+                        document.getElementById('seatDiv').appendChild(document.createElement('input')).setAttribute('id', `seat${i+1}`);
+                        document.getElementById(`seat${i+1}`).setAttribute('type', `radio`);
+                        document.getElementById('seatDiv').appendChild(document.createElement('label')).setAttribute('id', `seat_label${i+1}`);
+                        document.getElementById(`seat_label${i+1}`).innerHTML = i+1;
+                    }
+                    
+                }
+            }
+
+
+
+        })
+
+        document.getElementById('book').addEventListener('click', function(){
+            console.log(`Button working`);//tracker
+            
+
+        })
+        
+        
+    </script>
+</body>
+</html>

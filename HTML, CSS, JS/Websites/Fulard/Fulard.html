@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fulard Industries-Home</title>
+    <style>
+
+    
+        /* #navTable button{
+            background-color: aqua;
+            width: 150px;
+            height: 40px;
+            border-radius: 30px;
+            border: none;
+            background-color: rgb(46, 117, 182);
+            font-style: oblique;
+            color:rgba(14, 44, 214, 0.986) ;
+        } */
+        
+       .headerLinks{
+        display: inline-block;
+        text-align: center;
+        font-size: 30px;
+        margin-top: 50px;
+        margin: 52px 50px 0px 50px ;
+        }
+
+       .accountActions{
+         display: none; 
+        
+        
+        }
+
+       
+
+       #accountLink:hover~.accountActions{
+        margin-left: 700px;
+        margin-top: 0px;
+        margin-right:0px ;
+        display: block;
+        
+       }
+       .accountActions:hover{
+        display: block;
+        margin-left: 700px;
+        margin-top: 0px;
+        
+       }
+
+
+       .loginDetails{
+        
+       }
+
+       .LOGIN:hover ~ .loginDetails{
+        display: block;
+        
+        }
+
+       .loginDetails span{
+        display:inline-block;
+        margin-left: 0px;
+        
+        
+       }
+
+       .loginDetails:hover~ .signUp{
+        display: block;
+        
+       }
+
+       .signUp:hover {
+        display: block;
+       }
+
+       .employeeLoginDetails{
+        display: inline; 
+       }
+
+       
+
+       .employeeLogin:hover ~.employeeLoginDetails{
+        display: inline;
+        border:5px;
+       }
+        
+        
+        .employeeLoginEnter:hover{
+            display: inline;
+
+        }
+        a{
+            text-decoration: none;
+        }
+        input{
+            border-radius: 8px;
+            padding: 2px 2px 2px 2px;
+            text-align: center;
+            
+            margin: 0px 2px 2px 0px;
+            
+        }
+        button{
+            margin-left: 17px;
+            
+            margin-top: 2px;
+            margin-bottom: 0px;
+        }
+        #buttonEmployee{
+            margin-left: 60px;
+            
+            
+        }
+        
+
+
+       
+
+        
+
+    </style>
+</head>
+<body style="margin: 0%;">
+    <header>
+    <div>
+        <nav style="background-color:rgb(46, 117, 182) ; height: 150px;" id="navBar" >
+            <img src="FulardLogo.png" alt="" id="navLogo" style="height: 150px; position: fixed;" >
+            <!-- <table style="float:right ;" id="navTable">
+                <tr>
+                    <td>
+                        <button style="" id="ert">LOGIN</button>
+                    </td>
+                    <td>
+                        <button style="">EMPLOYEE LOGIN</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button>SIGN UP</button>
+                    </td>
+                </tr>
+            </table> -->
+            <div style="margin-left: 1000px;" class="navbarDiv">
+
+
+
+                <div class="headerLinks"><a href="">ABOUT US</a> </div>
+
+
+
+
+                
+                <div class="headerLinks"><a href="">FULARD GROUP</a></div>
+                
+                <!-- <div style="margin-right: 0px;">
+                    <div style="margin-right: 0px;">Ceerasa Pharmaceuticals</div>
+                    <div style="margin-right: 0px;">Hexem Petrochemials</div>
+                    <div style="margin-right: 0px;">Durion Aerospace</div>
+                </div> -->
+
+
+
+
+                <div class="headerLinks" id="accountLink"><a href="" style="">MY ACCOUNT</a></div>
+                <div class="accountActions">
+                    <div class="LOGIN"><a href=""> LOGIN</a></div>
+                    <div class="loginDetails">
+                        <input class="loginEnter" type="text" placeholder="Username">
+                        
+                        <input class="loginEnter" type="password" placeholder="Password">
+                        <span>
+                            <button class="loginEnter" >LOGIN</button>
+                            <button class="employeeLoginEnter" >SIGN UP</button>
+                        </span>
+                    </div>
+
+                    <br>
+                    
+                    
+                    <div class="employeeLogin"><a href=""> EMPLOYEE LOGIN</a></div>
+                    <div class="employeeLoginDetails">
+                        <input class="employeeLoginEnter" type="text" placeholder="Username">
+                        <input class="employeeLoginEnter" type="password" placeholder="Password">
+                        
+                        <button class="employeeLoginEnter" id="buttonEmployee" >LOGIN</button>
+                            
+                        
+                    </div>
+                </div>
+                
+                
+            </div>
+            <!-- <div >
+                <div class="accountActions">LOGIN</div>
+                <div class="accountActions">SIGN UP</div>
+                <div class="accountActions">EMPLOYEE LOGIN</div>
+            </div> -->
+            
+            
+
+            
+            
+        </nav>
+    </div>
+    </header>
+
+    <footer >
+        <nav>
+
+        </nav>
+    </footer>
+    
+</body>
+</html>
